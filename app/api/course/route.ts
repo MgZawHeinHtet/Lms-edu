@@ -2,15 +2,12 @@ import { db } from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
-    try {
-        
-        const toRead = await db.course.findMany()
-        return NextResponse.json(toRead);
-    } catch (error) {
-        console.log({error});
-        
-    }
-  
+  try {
+    const toRead = await db.course.findMany();
+    return NextResponse.json(toRead);
+  } catch (error) {
+    console.log({ error });
+  }
 }
 
 export async function POST(req: NextRequest, res: NextResponse) {
